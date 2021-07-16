@@ -26,7 +26,7 @@
         ])!!}
     </script>
 @endif
-<div id="app">
+<div id="app" class="bg-primary min-h-screen">
 </div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 </body>

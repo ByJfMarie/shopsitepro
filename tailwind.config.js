@@ -19,7 +19,8 @@ module.exports = {
         backgroundColor: {
           'vuejs': '#f5f5f5',
           'laravel': '#f5f5f5',
-          'primary': '#2d2e32'
+          'primary': '#2d2e32',
+          'secondary': '#25262A',
         },
         fontFamily: {
           'Lato': 'Lato, sans-serif'

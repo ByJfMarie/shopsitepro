@@ -1,7 +1,7 @@
 <template>
     <div class="">
 
-        <nav class="navbar navbar-expand-lg navbar-light w-full py-4 px-4 bg-primary font-Lato">
+        <nav class="navbar navbar-expand-lg navbar-light w-full py-4 px-4 bg-secondary font-Lato">
             <div class="collapse navbar-collapse w-full">
                 <div class="navbar-nav flex justify-between w-full text-white items-center">
                     <div class="site-return">
@@ -40,7 +40,6 @@
                 </div>
             </div>
         </nav>
-        <br/>
         <router-view/>
     </div>
 </template>
