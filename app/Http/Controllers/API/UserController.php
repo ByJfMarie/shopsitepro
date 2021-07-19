@@ -48,7 +48,9 @@ class UserController extends Controller
             'password' => $request->password,
         ];
 
-        if (Auth::attempt($credentials)) {
+        $remember_me = $request->has('remember_me') ? true : false;
+
+        if (Auth::attempt($credentials, $remember_me)) {
             $success = true;
             $message = 'User login successfully';
         } else {
