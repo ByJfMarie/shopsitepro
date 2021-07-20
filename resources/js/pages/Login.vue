@@ -9,7 +9,7 @@
                     {{ error }}
                 </div>
 
-                <div class="card-containers h-full flex lg:flex-row flex-col items-center justify-around text-white mt-8 xl:mt-40 lg:mt-24 md:mt-16">
+                <div class="card-containers h-full flex lg:flex-row flex-col items-center justify-around text-white mt-8 xl:mt-36 lg:mt-24 md:mt-16">
                     <div class="flex flex-col items-center mb-16 lg:mb-0">
                         <div class="mb-16 font-Lato font-bold text-xl">Se Connecter à Son Compte</div>
                         <div class="card-body">

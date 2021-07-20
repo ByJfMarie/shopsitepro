@@ -21,6 +21,7 @@ module.exports = {
           'tertiary': '#9CA3AF',
           'primary': '#2d2e32',
           'secondary': '#25262A',
+          'block': "#37383c",
         },
         height: {
           '100': '30rem',
@@ -36,6 +37,7 @@ module.exports = {
           'secondary': '#25262A',
           'tertiary': '#424245',
           'block': "#37383c",
+          'tailwind': '#40C2D0',
         },
         gradientColorStops: {
           'vuejs': '#F76E1F',
@@ -46,6 +48,8 @@ module.exports = {
         borderColor: {
           'tertiary': '#424245',
           'primary': '#2d2e32', 
+          'laravel': '#f72c1f',
+          'tailwind': '#40C2D0',
         },
         fontFamily: {
           'Lato': 'Lato, sans-serif'
