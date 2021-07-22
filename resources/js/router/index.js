@@ -5,6 +5,7 @@ import Register from '../pages/Register';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
 import createOffer from '../pages/createOffer';
+import contactMail from '../pages/contact';
 
 export const routes = [
     {
@@ -31,6 +32,11 @@ export const routes = [
         name: 'createOffer',
         path: '/createOffer',
         component: createOffer
+    },
+    {
+        name: 'contact',
+        path: '/contact',
+        component: contactMail
     }
 
 ];

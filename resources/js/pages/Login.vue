@@ -15,12 +15,12 @@
                         <div class="card-body">
                             <form class="flex flex-col items-center">
                                 <div class="mb-6">
-                                        <input id="email" type="email" placeholder="Email" class="bg-tertiary rounded px-4 py-2 w-72 phone:w-96 font-Lato text-base" v-model="email" required
+                                        <input id="email" type="email" placeholder="Email" class="bg-tertiary rounded px-4 py-2 w-72 phone:w-96 font-Lato text-base" v-model="l_email" required
                                                autofocus autocomplete="off">
                                 </div>
 
                                 <div class="form-group row mb-6">
-                                        <input id="password" type="password" placeholder="Mot De Passe" class="bg-tertiary rounded px-4 py-2 w-72 phone:w-96 font-Lato text-base" v-model="password"
+                                        <input id="password" type="password" placeholder="Mot De Passe" class="bg-tertiary rounded px-4 py-2 w-72 phone:w-96 font-Lato text-base" v-model="l_password"
                                                required autocomplete="off">
 
                                 </div>
@@ -53,21 +53,21 @@
                         <form class="flex flex-col items-center">
                             <div class="form-group row mb-6">
                                
-                                    <input id="name" type="text" placeholder="Nom" class="bg-tertiary rounded px-4 py-2 w-72 phone:w-96 font-Lato text-base" v-model="name" required
+                                    <input id="name" type="text" placeholder="Nom" class="bg-tertiary rounded px-4 py-2 w-72 phone:w-96 font-Lato text-base" v-model="r_name" required
                                            autofocus autocomplete="off">
                        
                             </div>
 
                             <div class="form-group row mb-6">
                               
-                                    <input id="email" type="email" placeholder="Email" class="bg-tertiary rounded px-4 py-2 w-72 phone:w-96 font-Lato text-base" v-model="email" required
+                                    <input id="email" type="email" placeholder="Email" class="bg-tertiary rounded px-4 py-2 w-72 phone:w-96 font-Lato text-base" v-model="r_email" required
                                            autofocus autocomplete="off">
                                
                             </div>
 
                             <div class="form-group row mb-12">
                                 
-                                    <input id="password" type="password" placeholder="Mot de Passe" class="bg-tertiary rounded px-4 py-2 w-72 phone:w-96 font-Lato text-base" v-model="password"
+                                    <input id="password" type="password" placeholder="Mot de Passe" class="bg-tertiary rounded px-4 py-2 w-72 phone:w-96 font-Lato text-base" v-model="r_password"
                                            required autocomplete="off">
                            
                             </div>
@@ -102,26 +102,47 @@
 export default {
     data() {
         return {
-            email: "",
-            password: "",
+            l_email: "",
+            l_password: "",
             remember_me: "",
-            error: null
+            error: null,
+            r_name: "",
+            r_email: "",
+            r_password: "",
         }
     },
     methods: {
         handleSubmit(e) {
             e.preventDefault()
-            if (this.password.length > 0) {
+            if (this.l_password.length > 0) {
                 this.$axios.get('/sanctum/csrf-cookie').then(response => {
                     this.$axios.post('api/login', {
-                        email: this.email,
-                        password: this.password,
+                        email: this.l_email,
+                        password: this.l_password,
                         remember_me: this.remember_me
                     })
                         .then(response => {
                             console.log(response.data)
                             if (response.data.success) {
                                 this.$router.go('/dashboard')
+                            } else {
+                                this.error = response.data.message
+                            }
+                        })
+                        .catch(function (error) {
+                            console.error(error);
+                        });
+                })
+            } else if (this.r_password.length > 0) {
+                this.$axios.get('/sanctum/csrf-cookie').then(response => {
+                    this.$axios.post('api/register', {
+                        name: this.r_name,
+                        email: this.r_email,
+                        password: this.r_password
+                    })
+                        .then(response => {
+                            if (response.data.success) {
+                                window.location.href = "/login"
                             } else {
                                 this.error = response.data.message
                             }

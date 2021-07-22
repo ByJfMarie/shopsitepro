@@ -56,12 +56,12 @@ export default {
         }
     },
     created() {
-        this.$axios.get("/api/offer/2").then(response => {
+        this.$axios.get("/api/offer/1").then(response => {
             this.card1_data = response.data;
             this.card1_data.description_inline = JSON.parse(this.card1_data.description_inline);
         });
 
-        this.$axios.get("/api/offer/3").then(response => {
+        this.$axios.get("/api/offer/2").then(response => {
             this.card2_data = response.data;
             this.card2_data.description_inline = JSON.parse(this.card2_data.description_inline);
         });
