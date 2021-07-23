@@ -1,4 +1,5 @@
 <template lang="fr">
+    
     <div class="text-white flex items-center justify-center pt-14">
         <div class="card w-4/6 bg-block flex flex-col items-center shadow-lg px-4 py-4 rounded-md">
             <h1 class="text-xl mb-4">Prise de Contact - Envoyer un Mail :</h1>
@@ -36,6 +37,7 @@
     </div>
 </template>
 <script>
+
 export default {
     data() {
         return {

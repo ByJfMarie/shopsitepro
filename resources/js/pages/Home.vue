@@ -46,6 +46,7 @@
 </template>
 
 <script>
+
 export default {
     name: "Home",
     data() {
@@ -53,8 +54,12 @@ export default {
             test: "fa-desktop",
             card1_data: null,
             card2_data: null,
+            isHidden: true,
         }
     },
+    mounted() {
+        this.isHidden = true;
+    },    
     created() {
         this.$axios.get("/api/offer/1").then(response => {
             this.card1_data = response.data;

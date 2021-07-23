@@ -1,5 +1,14 @@
 <template>
-    <div class="">
+    <div v-bind:class="{ hidden: loading_isHidden }" class="h-screen w-full flex items-center justify-center">
+
+    <orbit-spinner
+          :animation-duration="1500"
+          :size="120"
+          :color="'#40C2D0'"
+
+     />
+    </div>
+    <div v-bind:class="{ hidden: page_isHidden }">
 
         <nav class="navbar navbar-expand-lg navbar-light w-full py-4 px-4 bg-secondary font-Lato">
             <div class="collapse navbar-collapse w-full">
@@ -17,7 +26,7 @@
                       <router-link to="/" class="nav-item nav-link hover:text-tailwind">Home</router-link>
                       <router-link to="/web" class="nav-item nav-link hover:text-tailwind">Applications Web</router-link>
                       <router-link to="/contrat" class="nav-item nav-link hover:text-tailwind">Contrat Freelance</router-link>
-                      <router-link to="/demande" class="nav-item nav-link hover:text-tailwind">Demande Personnalisé</router-link>
+                      <router-link to="/contact" class="nav-item nav-link hover:text-tailwind">Demande Personnalisé</router-link>
                     </div>
                     </div>
                     <div class="menu xl:hidden block sm:w-3/5 w-2/5">
@@ -45,12 +54,26 @@
 </template>
 
 <script>
+
+import {OrbitSpinner} from 'epic-spinners'
+
 export default {
     name: "App",
     data() {
         return {
             isLoggedIn: false,
+            loading_isHidden: false,
+            page_isHidden: true,
         }
+    },
+    components: {
+        OrbitSpinner
+    },
+    beforeMount() {
+        setTimeout(() => {
+            this.loading_isHidden = true;
+            this.page_isHidden = false;
+        }, 1000);
     },
     created() {
         if (window.Laravel.isLoggedin) {
